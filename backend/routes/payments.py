@@ -9,7 +9,11 @@ from datetime import datetime
 import os
 import json
 from dotenv import load_dotenv
-import paytmchecksum
+
+try:
+    import paytmchecksum
+except ImportError:
+    paytmchecksum = None
 
 from database import get_db
 from models import Payment, Team, User
@@ -89,6 +93,9 @@ async def initiate_payment(
     current_user: TokenData = Depends(get_current_user_flexible)
 ):
     """Initiate Paytm payment and generate checksum"""
+    if paytmchecksum is None:
+        raise HTTPException(status_code=501, detail="Paytm integration not available. Use UPI payment instead.")
+    
     user = db.query(User).filter(User.email == current_user.email).first()
     team = db.query(Team).filter(Team.user_id == user.id).first()
     

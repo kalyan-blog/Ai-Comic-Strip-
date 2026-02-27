@@ -16,8 +16,9 @@ passlib[bcrypt]==1.7.4
 # Validation
 pydantic[email]==2.5.3
 
-# Payment Gateway
-paytmchecksum==1.7.0
+# Payment Gateway (optional - only needed for Paytm integration)
+# paytmchecksum==1.7.0
+pycryptodome==3.20.0
 
 # Environment Variables
 python-dotenv==1.0.0
