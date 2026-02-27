@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D9FF"/>
+      <stop offset="50%" style="stop-color:#FF00FF"/>
+      <stop offset="100%" style="stop-color:#FFE500"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="45" fill="url(#gradient)" stroke="#000" stroke-width="4"/>
+  <!-- AI text -->
+  <text x="50" y="58" font-family="Arial Black, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#000">AI</text>
+  <!-- Comic burst lines -->
+  <line x1="15" y1="20" x2="25" y2="25" stroke="#000" stroke-width="2"/>
+  <line x1="10" y1="30" x2="22" y2="32" stroke="#000" stroke-width="2"/>
+  <line x1="85" y1="20" x2="75" y2="25" stroke="#000" stroke-width="2"/>
+  <line x1="90" y1="30" x2="78" y2="32" stroke="#000" stroke-width="2"/>
+  <!-- Small star -->
+  <circle cx="80" cy="75" r="5" fill="#FFE500" stroke="#000" stroke-width="1"/>
+</svg>

@@ -1,0 +1,474 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   TEXPERIA 2026 - Premium Design System
+   ============================================ */
+
+/* Base Styles */
+@layer base {
+  body {
+    @apply font-comic bg-comic-dark text-white antialiased;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bangers;
+  }
+
+  ::selection {
+    background: rgba(0, 217, 255, 0.3);
+    color: #fff;
+  }
+}
+
+/* Component Styles */
+@layer components {
+
+  /* ── Buttons ──────────────────────────────── */
+  .btn-comic {
+    @apply px-6 py-3 font-bangers text-lg uppercase tracking-wider
+           border-4 border-black transition-all duration-300 rounded-xl
+           relative overflow-hidden cursor-pointer
+           hover:-translate-y-1 hover:shadow-brutal-lg 
+           active:translate-y-0 active:shadow-none;
+  }
+
+  .btn-comic::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+  }
+  .btn-comic:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-primary {
+    @apply btn-comic bg-comic-cyan text-black shadow-brutal
+           hover:bg-comic-yellow hover:shadow-brutal-lg;
+  }
+
+  .btn-secondary {
+    @apply btn-comic bg-comic-pink text-white shadow-brutal
+           hover:bg-comic-purple;
+  }
+
+  .btn-success {
+    @apply btn-comic bg-comic-green text-black shadow-brutal
+           hover:bg-comic-cyan;
+  }
+
+  .btn-outline {
+    @apply btn-comic bg-transparent text-white border-comic-cyan
+           hover:bg-comic-cyan hover:text-black;
+  }
+
+  /* ── Cards ────────────────────────────────── */
+  .card-bubble {
+    @apply bg-white text-black rounded-2xl p-6
+           border-4 border-black shadow-brutal
+           relative transition-all duration-300;
+  }
+
+  .card-bubble::after {
+    content: '';
+    @apply absolute -bottom-4 left-8 w-0 h-0
+           border-l-[16px] border-l-transparent
+           border-t-[16px] border-t-black
+           border-r-[16px] border-r-transparent;
+  }
+
+  .card-glass {
+    @apply rounded-2xl p-6 transition-all duration-200
+           border border-white/10;
+    background: rgba(22, 22, 42, 0.8);
+  }
+
+  .card-glass:hover {
+    border-color: rgba(0, 217, 255, 0.3);
+  }
+
+  .card-neon {
+    @apply rounded-2xl p-6 border-2 transition-all duration-200 relative overflow-hidden;
+    border-color: rgba(0, 217, 255, 0.3);
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(255, 0, 255, 0.05) 100%);
+  }
+
+  .card-neon::before {
+    content: '';
+    @apply absolute -inset-1 rounded-2xl opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, #00D9FF, #FF00FF, #FFE500);
+    filter: blur(15px);
+    z-index: -1;
+  }
+
+  .card-neon:hover::before {
+    @apply opacity-30;
+  }
+
+  .card-neon:hover {
+    border-color: rgba(0, 217, 255, 0.6);
+    transform: translateY(-2px);
+  }
+
+  /* ── Inputs ───────────────────────────────── */
+  .input-comic {
+    @apply w-full px-4 py-3 rounded-xl
+           border-gray-300 bg-white
+           font-comic text-black text-lg
+           focus:outline-none focus:border-comic-cyan focus:ring-4 focus:ring-comic-cyan/20
+           transition-all duration-300 placeholder:text-gray-400;
+    border-width: 3px;
+  }
+
+  .input-dark {
+    @apply w-full px-4 py-3 rounded-xl
+           border-2 font-comic text-white text-lg
+           focus:outline-none focus:border-comic-cyan focus:ring-4 focus:ring-comic-cyan/20
+           transition-all duration-300 placeholder:text-gray-500;
+    border-color: #2A2A4A;
+    background-color: #16162A;
+  }
+
+  /* ── Panel ────────────────────────────────── */
+  .panel {
+    @apply bg-white border-4 border-black rounded-2xl p-6 shadow-brutal;
+  }
+
+  .panel-dark {
+    @apply rounded-2xl p-6 border;
+    border-color: #2A2A4A;
+    background: rgba(22, 22, 42, 0.9);
+  }
+
+  /* ── Gradient Text ────────────────────────── */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #00D9FF 0%, #FF00FF 50%, #FFE500 100%);
+
+  }
+
+  /* ── Badges ───────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full
+           text-sm font-bold border-2 border-black;
+  }
+
+  .badge-success {
+    @apply badge bg-comic-green text-black;
+  }
+
+  .badge-pending {
+    @apply badge bg-comic-yellow text-black;
+  }
+
+  .badge-error {
+    @apply badge bg-red-500 text-white border-red-700;
+  }
+
+  .badge-glow {
+    @apply inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(255, 0, 255, 0.2));
+    border: 1px solid rgba(0, 217, 255, 0.4);
+    color: #00D9FF;
+  }
+
+  /* ── FAQ Accordion ────────────────────────── */
+  .accordion-item {
+    @apply border-2 rounded-xl mb-3 overflow-hidden 
+           transition-all duration-200;
+    border-color: #2A2A4A;
+    background: rgba(22, 22, 42, 0.8);
+  }
+
+  .accordion-item:hover {
+    border-color: rgba(0, 217, 255, 0.3);
+  }
+
+  .accordion-header {
+    @apply w-full px-6 py-4 text-left font-bangers text-xl text-white
+           flex justify-between items-center 
+           transition-all duration-300;
+  }
+
+  .accordion-header:hover {
+    background: rgba(0, 217, 255, 0.05);
+  }
+
+  .accordion-content {
+    @apply px-6 pb-4 font-comic text-gray-300;
+  }
+
+  /* ── Section Titles ───────────────────────── */
+  .section-title {
+    @apply font-bangers text-4xl sm:text-5xl text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply font-comic text-gray-400 text-center text-lg mb-12 max-w-2xl mx-auto;
+  }
+
+  /* ── Stat Card ────────────────────────────── */
+  .stat-card {
+    @apply rounded-2xl p-6 border transition-all duration-200 relative overflow-hidden;
+    border-color: #2A2A4A;
+    background: rgba(22, 22, 42, 0.8);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 217, 255, 0.3);
+  }
+
+  .stat-card::after {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1;
+    background: linear-gradient(90deg, #00D9FF, #FF00FF);
+  }
+
+  /* ── Table ────────────────────────────────── */
+  .table-modern th {
+    @apply text-left py-4 px-4 font-bangers text-lg text-gray-400 uppercase tracking-wider text-sm;
+    border-bottom: 2px solid rgba(0, 217, 255, 0.2);
+  }
+
+  .table-modern td {
+    @apply py-4 px-4;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .table-modern tr:hover td {
+    background: rgba(0, 217, 255, 0.03);
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-shadow-comic {
+    text-shadow: 3px 3px 0px #000000;
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.5), 0 0 40px rgba(0, 217, 255, 0.2);
+  }
+
+  .text-shadow-neon {
+    text-shadow: 0 0 10px currentColor, 0 0 40px currentColor;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .bg-lines {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(0,217,255,0.03) 10px,
+      rgba(0,217,255,0.03) 20px
+    );
+  }
+
+  .bg-noise {
+    position: relative;
+  }
+
+  .bg-noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .border-3 {
+    border-width: 3px;
+  }
+
+  .border-gradient {
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+
+  .border-gradient::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #00D9FF, #FF00FF, #FFE500);
+    z-index: -1;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    padding: 2px;
+  }
+}
+
+/* ── Scrollbar ──────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F0F23;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00D9FF, #FF00FF);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FF00FF, #FFE500);
+}
+
+/* ── Register Button Glow ───────────────────── */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 5px 5px 0px 0px #000000, 0 0 20px rgba(0, 217, 255, 0.5);
+  }
+  50% {
+    box-shadow: 5px 5px 0px 0px #000000, 0 0 40px rgba(255, 0, 255, 0.8), 0 0 80px rgba(0, 217, 255, 0.3);
+  }
+}
+
+.btn-register {
+  animation: pulse-glow 2s infinite;
+}
+
+/* ── Floating Particles ─────────────────────── */
+@keyframes particle-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+  25% { transform: translateY(-30px) rotate(90deg); opacity: 1; }
+  50% { transform: translateY(-60px) rotate(180deg); opacity: 0.6; }
+  75% { transform: translateY(-30px) rotate(270deg); opacity: 1; }
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: particle-float 6s ease-in-out infinite;
+}
+
+/* ── Gradient Border Animated ───────────────── */
+@keyframes rotate-gradient {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+.animated-border {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.animated-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(from var(--angle, 0deg), #00D9FF, #FF00FF, #FFE500, #00FF88, #00D9FF);
+  border-radius: inherit;
+  animation: rotate-gradient 6s linear infinite;
+  z-index: -1;
+}
+
+/* ── Shimmer Effect ─────────────────────────── */
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── Glow Orbs ──────────────────────────────── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.12;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.orb-cyan { background: #00D9FF; }
+.orb-pink { background: #FF00FF; }
+.orb-yellow { background: #FFE500; }
+.orb-green { background: #00FF88; }
+
+/* ── Progress Steps ─────────────────────────── */
+.step-indicator {
+  @apply flex items-center justify-center w-12 h-12 rounded-full font-bangers text-xl
+         transition-all duration-500 relative;
+}
+
+.step-indicator.active {
+  @apply text-black;
+  background: linear-gradient(135deg, #00D9FF, #FF00FF);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.4);
+}
+
+.step-indicator.completed {
+  @apply bg-comic-green text-black;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+.step-indicator.pending {
+  @apply text-gray-500;
+  background-color: #2A2A4A;
+}
+
+.step-line {
+  @apply h-1 w-16 transition-all duration-500 rounded-full;
+}
+
+.step-line.active {
+  background: linear-gradient(90deg, #00D9FF, #FF00FF);
+}
+
+.step-line.pending {
+  background-color: #2A2A4A;
+}
+
+/* ── Reduced Motion ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .orb, .particle {
+    display: none !important;
+  }
+  
+  .animate-blob, .animate-bounce, .animate-pulse,
+  .animate-bounce-slow, .shimmer {
+    animation: none !important;
+  }
+}
+
+/* ── GPU Acceleration Hints ─────────────────── */
+.card-neon, .card-glass, .stat-card, .btn-comic {
+  will-change: transform;
+  transform: translateZ(0);
+}
