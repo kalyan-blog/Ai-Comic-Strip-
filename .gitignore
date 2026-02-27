@@ -18,7 +18,9 @@ env/
 
 # Environment variables (SENSITIVE - never commit)
 .env
-.env.*
+.env.local
+.env.production
+!.env.example
 
 # Node.js
 node_modules/
@@ -41,3 +43,6 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Misc
+push_output.txt

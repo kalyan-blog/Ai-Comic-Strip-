@@ -64,7 +64,9 @@ app = FastAPI(
 )
 
 # CORS Configuration
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "")
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
+
 ALLOWED_ORIGINS = [
     FRONTEND_URL,
     "http://localhost:5173",
@@ -75,7 +77,14 @@ ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 
-# Add production URLs if defined
+# Add comma-separated production origins from env
+if CORS_ORIGINS:
+    for origin in CORS_ORIGINS.split(","):
+        origin = origin.strip()
+        if origin and origin not in ALLOWED_ORIGINS:
+            ALLOWED_ORIGINS.append(origin)
+
+# Add production URL if defined
 if os.getenv("PRODUCTION_URL"):
     ALLOWED_ORIGINS.append(os.getenv("PRODUCTION_URL"))
 

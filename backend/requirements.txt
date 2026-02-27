@@ -1,5 +1,5 @@
 # AI Comic Strip Challenge 2026 - Backend Dependencies
-# Python 3.10+
+# Python 3.11+
 
 # FastAPI Framework
 fastapi==0.109.0
@@ -8,7 +8,6 @@ uvicorn[standard]==0.27.0
 # Database
 sqlalchemy==2.0.25
 psycopg[binary]==3.1.18
-alembic==1.13.1
 
 # Authentication
 python-jose[cryptography]==3.3.0
@@ -29,10 +28,5 @@ httpx==0.26.0
 # CORS and Security
 python-multipart==0.0.6
 
-# PDF Generation (for receipts)
-reportlab==4.0.8
-
-# Testing
-pytest==7.4.4
-pytest-asyncio==0.23.3
-httpx==0.26.0
+# Production ASGI server
+gunicorn==21.2.0
